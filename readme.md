@@ -1,10 +1,9 @@
-## 项目名称：snowflakelite
+## Project Name: snowflakelite
 
-snowflakelite是一种基于雪花算法（Snowflake）的分布式ID生成方案，针对传统雪花算法在时钟回拨场景下的局限性进行了优化，解决了因时间回拨导致的ID冲突问题。同时无额外存储依赖，如MySQL、zookeeper等，开箱即用。
+snowflakelite is a distributed ID generation scheme based on the Snowflake algorithm, optimized for the limitations of the traditional Snowflake algorithm in clock rollback scenarios, solving the ID conflict problem caused by time rollback. It has no additional storage dependencies such as MySQL, zookeeper, etc., and is ready to use out of the box.
 
-### 运行时无需关注时钟回拨 & 更长的存储年限
-过引入时间窗口的设计，snowflakelite能够容忍一定范围内的时钟回拨，确保即使在极端条件下，生成的ID仍然保持全局唯一性，无需额外的时钟校准逻辑。
-优化了时间戳字段的使用策略，能够支持更长的时间跨度。
+### No need to worry about clock rollback at runtime & longer storage lifespan
+By introducing the design of a time window, snowflakelite can tolerate clock rollback within a certain range, ensuring that the generated IDs remain globally unique even under extreme conditions, without the need for additional clock calibration logic. The usage strategy of the timestamp field has been optimized to support a longer time span.
 
-### 兼容性与易用性
-snowflakelite在实现过程中保持了与现有雪花算法的接口兼容（最高64位ID），同时提供了更高的稳定性性和容错能力，适用于不同规模的分布式架构。
+### Compatibility and Ease of Use
+In the implementation process, snowflakelite maintains interface compatibility with the existing Snowflake algorithm (up to 64-bit ID), while providing higher stability and fault tolerance, suitable for distributed architectures of different scales.
